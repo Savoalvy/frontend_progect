@@ -4,6 +4,26 @@ import {BuildOptions} from "./types/config";
 
 export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
 
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    }
+
+    const babelLoader = {
+        test: /\.(t|j)sx?$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: [
+                    '@babel/preset-env',
+                    ['@babel/preset-react', { runtime: 'automatic' }],
+                    '@babel/preset-typescript'
+                ]
+            }
+        }
+    }
+
     const cssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -25,14 +45,21 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
         ]
     }
 
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    }
+    // ts-loader удалён, так как TS/TSX теперь обрабатывает babel-loader
+
+    const fileLoader = {
+            test: /\.(png|jpe?g|gif)$/i,
+            use: [
+                {
+                    loader: 'file-loader',
+                },
+            ],
+        }
 
     return [
-        typescriptLoader,
+        svgLoader,
+        fileLoader,
         cssLoader,
+        babelLoader
     ]
 }
