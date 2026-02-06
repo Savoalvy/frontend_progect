@@ -10,7 +10,6 @@ import { Sidebar } from 'widgets/Sidebar/ui';
 
 function App() {
     const { theme } = useTheme();
-
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback={<div>Загрузка...</div>}>
