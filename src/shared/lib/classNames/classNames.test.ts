@@ -1,4 +1,4 @@
-import { classNames } from './classNames';
+import { classNames } from '..'; // Using barrel file for cleaner imports
 
 describe('classNames', () => {
     test('with only first param', () => {
