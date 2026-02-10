@@ -10,19 +10,19 @@ import { classNames } from '@shared/lib/classNames';
 import s from './style.module.scss';
 
 interface ThemeSwitcherProps {
-    className?: string
+  className?: string;
 }
 
 export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
-    const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
-    return (
-        <Button
-            theme={ThemeButton.CLEAR}
-            className={classNames(s.themeSwitcher, {}, [className])}
-            onClick={toggleTheme}
-        >
-            {theme === Theme.DARK ? <LightIcon /> : <DarkIcon />}
-        </Button>
-    );
+  return (
+    <Button
+      theme={ThemeButton.CLEAR}
+      className={classNames(s.themeSwitcher, {}, [className])}
+      onClick={toggleTheme}
+    >
+      {theme === Theme.DARK ? <LightIcon /> : <DarkIcon />}
+    </Button>
+  );
 };

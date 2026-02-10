@@ -1,20 +1,19 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@shared/lib/classNames';
 import s from './style.module.scss';
 
 interface LoaderProps {
-    className?: string
+  className?: string;
 }
 
 export const Loader = ({ className }: LoaderProps) => (
-    <div className={classNames(s.ldsRoller, {}, [className])}>
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-    </div>
-
+  <div className={classNames(s.ldsRoller, {}, [className])}>
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
 );

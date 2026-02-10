@@ -6,23 +6,23 @@ import { ThemeButton } from '@shared/ui/Button/Button';
 import s from './style.module.scss';
 
 interface LangSwitcherProps {
-    className?: string
+  className?: string;
 }
 
 export const LangSwitcher = ({ className }: LangSwitcherProps) => {
-    const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-    const toggle = () => {
-        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
-    };
+  const toggle = () => {
+    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+  };
 
-    return (
-        <Button
-            className={classNames(s.langSwitcher, {}, [className])}
-            theme={ThemeButton.CLEAR}
-            onClick={toggle}
-        >
-            {t('Язык')}
-        </Button>
-    );
+  return (
+    <Button
+      className={classNames(s.langSwitcher, {}, [className])}
+      theme={ThemeButton.CLEAR}
+      onClick={toggle}
+    >
+      {t('Язык')}
+    </Button>
+  );
 };

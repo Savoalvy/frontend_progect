@@ -13,7 +13,18 @@ module.exports = {
           'variants',
           'responsive',
           'screen',
-          'layer'
+          'layer',
+          'use',
+          'forward',
+          'mixin',
+          'include',
+          'function',
+          'return',
+          'if',
+          'else',
+          'each',
+          'for',
+          'while'
         ]
       }
     ],

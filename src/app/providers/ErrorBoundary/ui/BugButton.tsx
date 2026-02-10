@@ -3,25 +3,21 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@shared/ui/Button';
 
 interface BugButtonProps {
-    className?: string
+  className?: string;
 }
 
 export const BugButton: FC<BugButtonProps> = () => {
-    const [error, setError] = useState(false);
-    const { t } = useTranslation();
-    const triggerError = () => {
-        setError(true);
-    };
+  const [error, setError] = useState(false);
+  const { t } = useTranslation();
+  const triggerError = () => {
+    setError(true);
+  };
 
-    useEffect(() => {
-        if (error) {
-            throw new Error();
-        }
-    }, [error]);
+  useEffect(() => {
+    if (error) {
+      throw new Error();
+    }
+  }, [error]);
 
-    return (
-        <Button onClick={triggerError}>
-            {t('Пробросить ошибку (Тест)')}
-        </Button>
-    );
+  return <Button onClick={triggerError}>{t('Пробросить ошибку (Тест)')}</Button>;
 };

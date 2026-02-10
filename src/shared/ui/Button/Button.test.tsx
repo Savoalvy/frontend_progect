@@ -2,14 +2,14 @@ import { render, screen } from '@testing-library/react';
 import { Button, ThemeButton } from './Button';
 
 describe('Button', () => {
-    test('renders button', () => {
-        render(<Button>Test</Button>);
-        expect(screen.getByText('Test')).toBeInTheDocument();
-    });
+  test('renders button', () => {
+    render(<Button>Test</Button>);
+    expect(screen.getByText('Test')).toBeInTheDocument();
+  });
 
-    test('with only first params', () => {
-        render(<Button theme={ThemeButton.CLEAR}>Test</Button>);
-        expect(screen.getByText('Test')).toHaveClass('clear');
-        screen.debug();
-    });
+  test('with only first params', () => {
+    render(<Button theme={ThemeButton.CLEAR}>Test</Button>);
+    expect(screen.getByText('Test')).toHaveClass('clear');
+    screen.debug();
+  });
 });

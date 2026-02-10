@@ -3,16 +3,16 @@ import { Sidebar } from '@widgets/Sidebar';
 import { renderWithTranslation } from '@shared/lib/tests/renderWithTranslation';
 
 describe('Sidebar', () => {
-    test('renders button', () => {
-        renderWithTranslation(<Sidebar />);
-        expect(screen.getByTestId('sidebar')).toBeInTheDocument();
-    });
+  test('renders button', () => {
+    renderWithTranslation(<Sidebar />);
+    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+  });
 
-    test('sidebar-toggle', () => {
-        renderWithTranslation(<Sidebar />);
-        const toggleBtn = screen.getByTestId('sidebar-toggle');
-        expect(screen.getByTestId('sidebar')).toBeInTheDocument();
-        fireEvent.click(toggleBtn);
-        expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
-    });
+  test('sidebar-toggle', () => {
+    renderWithTranslation(<Sidebar />);
+    const toggleBtn = screen.getByTestId('sidebar-toggle');
+    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+    fireEvent.click(toggleBtn);
+    expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
+  });
 });

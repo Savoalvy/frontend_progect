@@ -7,12 +7,12 @@ import { ThemeProvider } from '@app/providers/ThemeProvider';
 import App from '@app/App';
 
 render(
-    <BrowserRouter>
-        <ErrorBoundary>
-            <ThemeProvider>
-                <App />
-            </ThemeProvider>
-        </ErrorBoundary>
-    </BrowserRouter>,
-    document.getElementById('root'),
+  <BrowserRouter>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </ErrorBoundary>
+  </BrowserRouter>,
+  document.getElementById('root'),
 );

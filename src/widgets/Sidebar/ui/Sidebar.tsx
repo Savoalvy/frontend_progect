@@ -7,27 +7,28 @@ import { Button } from '@shared/ui/Button';
 import s from './style.module.scss';
 
 interface SidebarProps {
-    className?: string
+  className?: string;
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
-    const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
-    const onToggle = () => {
-        setCollapsed((prev) => !prev);
-    };
+  const onToggle = () => {
+    setCollapsed(prev => !prev);
+  };
 
-    return (
-        <div
-            data-testid="sidebar"
-            className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [className])}
-        >
-            <Button data-testid="sidebar-toggle" onClick={onToggle}>TOGGLE</Button>
-            <div className={s.switchers}>
-                <ThemeSwitcher />
-                <LangSwitcher className={s.lang} />
-            </div>
-        </div>
-
-    );
+  return (
+    <div
+      data-testid="sidebar"
+      className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [className])}
+    >
+      <Button data-testid="sidebar-toggle" onClick={onToggle}>
+        TOGGLE
+      </Button>
+      <div className={s.switchers}>
+        <ThemeSwitcher />
+        <LangSwitcher className={s.lang} />
+      </div>
+    </div>
+  );
 };
