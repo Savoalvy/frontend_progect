@@ -1,4 +1,4 @@
-import type { Configuration, RuleSetRule } from 'webpack';
+import type { Configuration } from 'webpack';
 import path from 'path';
 import { BuildPaths } from '../build/types/config';
 
@@ -10,12 +10,12 @@ export default ({ config }: { config: Configuration }): Configuration => {
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
 
-  // Configure resolve
+  /* eslint-disable */
+
   if (config.resolve) {
     config.resolve.modules = [paths.src, 'node_modules'];
     config.resolve.extensions = ['.tsx', '.ts', '.js', '.jsx', '.scss', '.css'];
 
-    // Add path aliases
     config.resolve.alias = {
       ...config.resolve.alias,
       '@app': path.resolve(__dirname, '..', '..', 'src/app'),
@@ -24,13 +24,11 @@ export default ({ config }: { config: Configuration }): Configuration => {
       '@features': path.resolve(__dirname, '..', '..', 'src/features'),
       '@pages': path.resolve(__dirname, '..', '..', 'src/pages'),
       '@widgets': path.resolve(__dirname, '..', '..', 'src/widgets'),
-      'react/jsx-runtime.js': 'react/jsx-runtime', // Fix for React 18
+      'react/jsx-runtime.js': 'react/jsx-runtime',
     };
   }
 
-  // Handle module rules
   if (config.module?.rules) {
-    // Clear existing rules for CSS/SCSS/SVG
     config.module.rules = config.module.rules.filter(rule => {
       if (rule === '...') return true;
       if (rule && typeof rule === 'object' && 'test' in rule) {
@@ -40,14 +38,12 @@ export default ({ config }: { config: Configuration }): Configuration => {
       return true;
     });
 
-    // Add SVG loader
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
       use: ['@svgr/webpack'],
     });
 
-    // SCSS modules
     config.module.rules.push({
       test: /\.module\.s[ac]ss$/,
       use: [
@@ -77,7 +73,6 @@ export default ({ config }: { config: Configuration }): Configuration => {
       include: path.resolve(__dirname, '../../src'),
     });
 
-    // Global SCSS
     config.module.rules.push({
       test: /\.s[ac]ss$/i,
       exclude: [/\.module\.s[ac]ss$/, /node_modules/],
@@ -98,7 +93,6 @@ export default ({ config }: { config: Configuration }): Configuration => {
       include: path.resolve(__dirname, '../../src'),
     });
 
-    // CSS modules
     config.module.rules.push({
       test: /\.module\.css$/,
       use: [
@@ -119,7 +113,6 @@ export default ({ config }: { config: Configuration }): Configuration => {
       include: path.resolve(__dirname, '../../src'),
     });
 
-    // Global CSS
     config.module.rules.push({
       test: /(?<!\.module)\.css$/,
       use: ['style-loader', 'css-loader', 'postcss-loader'],
