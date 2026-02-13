@@ -7,4 +7,20 @@ module.exports = {
   bracketSpacing: true,
   arrowParens: 'avoid',
   endOfLine: 'auto',
+  jsxSingleQuote: true,
+  bracketSameLine: false,
+  jsxBracketSameLine: false,
+  singleAttributePerLine: true,
+  overrides: [
+    {
+      files: '*.{ts,tsx,js,jsx}',
+      options: {
+        bracketSpacing: true,
+        jsxBracketSameLine: false,
+        singleAttributePerLine: true,
+        jsxSingleAttributePerLine: true,
+        bracketSameLine: false,
+      },
+    },
+  ],
 };

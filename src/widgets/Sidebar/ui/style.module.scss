@@ -6,8 +6,35 @@
   transition: width 0.3s;
 }
 
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  path,
+  circle,
+  rect,
+  line,
+  polyline,
+  polygon {
+    stroke: var(--inverted-primary-color);
+  }
+}
+
 .collapsed {
   width: var(--sidebar-width-collapsed);
+
+  .switchers {
+    flex-direction: column;
+  }
 }
 
 .switchers {
@@ -18,6 +45,7 @@
   width: 100%;
 }
 
-.lang {
-  margin-left: 20px;
+.collapseBtn {
+  position: absolute;
+  right: 20px;
 }

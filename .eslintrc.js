@@ -1,67 +1,59 @@
 module.exports = {
-    env: {
-        browser: true,
-        es2021: true,
-        jest: true,
+  env: {
+    browser: true,
+    es2021: true,
+    jest: true,
+  },
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'plugin:i18next/recommended',
+    'plugin:storybook/recommended',
+    'prettier',
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-        'plugin:i18next/recommended',
-        'plugin:storybook/recommended',
-        'plugin:prettier/recommended',
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  plugins: ['react', '@typescript-eslint', 'i18next', 'prettier'],
+  globals: {
+    __IS_DEV__: true,
+  },
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off', // Отключаем проверку в тестах
+      },
+    },
+  ],
+  rules: {
+    'i18next/no-literal-string': [
+      'error',
+      {
+        markupOnly: true, // Проверяем только JSX разметку
+        ignoreAttribute: ['data-testid', 'to'], // Игнорируем атрибуты
+      },
     ],
-    parser: '@typescript-eslint/parser',
-    parserOptions: {
-        ecmaFeatures: {
-            jsx: true,
-        },
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-    },
-    plugins: [
-        'react',
-        '@typescript-eslint',
-        'i18next',
-        'prettier',
-    ],
-    globals: {
-        __IS_DEV__: true,
-    },
-    overrides: [
-        {
-            files: ['**/src/**/*.test.{ts,tsx}'],
-            rules: {
-                'i18next/no-literal-string': 'off', // Отключаем проверку в тестах
-            },
-        },
-    ],
-    rules: {
-        'i18next/no-literal-string': [
-            'error',
-            {
-                markupOnly: true, // Проверяем только JSX разметку
-                ignoreAttribute: ['data-testid', 'to'], // Игнорируем атрибуты
-            },
-        ],
-        'prettier/prettier': 'error',
-        'react/jsx-indent': 'off',
-        'react/jsx-indent-props': 'off',
-        'indent': 'off',
-        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
-        'import/extensions': 'off',
-        'import/no-extraneous-dependencies': 'off',
-        'no-underscore-dangle': 'off',
-        'import/no-unresolved': 'off',
-        'import/prefer-default-export': 'off',
-        'no-unused-vars': 'warn',
-        'react/require-default-props': 'off',
-        'react/react-in-jsx-scope': 'off',
-        'react/jsx-props-no-spreading': 'warn',
-        'react/function-component-definition': 'off',
-        'no-shadow': 'off',
-        'import/extensions': 'off',
-        'import/no-extraneous-dependencies': 'off',
-        'no-underscore-dangle': 'off',
-    },
+    'prettier/prettier': 'error',
+    'react/jsx-indent': 'off',
+    'react/jsx-indent-props': 'off',
+    indent: 'off',
+    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'import/extensions': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'no-underscore-dangle': 'off',
+    'import/no-unresolved': 'off',
+    'import/prefer-default-export': 'off',
+    'no-unused-vars': 'warn',
+    'react/require-default-props': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-props-no-spreading': 'warn',
+    'react/function-component-definition': 'off',
+    'no-shadow': 'off',
+  },
 };
