@@ -4,27 +4,31 @@ on:
   push:
     branches: [ master ]
   pull_request:
-      branches: [ master ]
+    branches: [ master ]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [22]
-
+    # Убираем matrix, так как он не нужен для одной версии
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v4  # v4 вместо v2
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4  # v4 вместо v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '22'  # В кавычках
+          cache: 'npm'  # Добавляем кэширование
+
       - name: install modules
         run: npm install
+
       - name: build production project
         run: npm run build:prod
+
       - name: linting typescript
         run: npm run lint:ts
+
       - name: linting SCSS
         run: npm run lint:scss
+
       - name: unit testing
         run: npm run unit
