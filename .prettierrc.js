@@ -1,25 +1,23 @@
 module.exports = {
+  printWidth: 120,
+  tabWidth: 2,
+  useTabs: false,
   semi: true,
   singleQuote: true,
   trailingComma: 'all',
-  tabWidth: 2,
-  printWidth: 100,
   bracketSpacing: true,
+  bracketSameLine: false,
   arrowParens: 'avoid',
   endOfLine: 'auto',
   jsxSingleQuote: true,
-  bracketSameLine: false,
-  jsxBracketSameLine: false,
-  singleAttributePerLine: true,
+  jsxBracketSpacing: true,
+  singleAttributePerLine: false,
+  // Ensure consistent line breaks for objects and arrays
   overrides: [
     {
-      files: '*.{ts,tsx,js,jsx}',
+      files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
       options: {
-        bracketSpacing: true,
-        jsxBracketSameLine: false,
-        singleAttributePerLine: true,
-        jsxSingleAttributePerLine: true,
-        bracketSameLine: false,
+        // Add any TypeScript/JavaScript specific options here
       },
     },
   ],

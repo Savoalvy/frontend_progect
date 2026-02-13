@@ -4,6 +4,7 @@ import s from './style.module.scss';
 
 export enum ThemeButton {
   CLEAR = 'clear',
+  CLEAR_INVERTED = 'clearInverted',
   OUTLINE = 'outline',
   BACKGROUND = 'background',
   BACKGROUND_INVERTED = 'backgroundInverted',
@@ -32,11 +33,7 @@ export const Button: FC<ButtonProps> = props => {
   };
 
   return (
-    <button
-      type='button'
-      className={classNames(s.button, mods, [className])}
-      {...otherProps}
-    >
+    <button type='button' className={classNames(s.button, mods, [className])} {...otherProps}>
       {children}
     </button>
   );

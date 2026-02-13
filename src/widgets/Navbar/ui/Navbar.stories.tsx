@@ -8,9 +8,7 @@ import { Navbar } from '@widgets/Navbar';
 export default {
   title: 'widgets/Navbar',
   component: Navbar,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+  argTypes: { backgroundColor: { control: 'color' } },
 } as ComponentMeta<typeof Navbar>;
 
 const Template: ComponentStory<typeof Navbar> = args => <Navbar {...args} />;

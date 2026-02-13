@@ -14,11 +14,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     use: {
       loader: 'babel-loader',
       options: {
-        presets: [
-          '@babel/preset-env',
-          ['@babel/preset-react', { runtime: 'automatic' }],
-          '@babel/preset-typescript',
-        ],
+        presets: ['@babel/preset-env', ['@babel/preset-react', { runtime: 'automatic' }], '@babel/preset-typescript'],
       },
     },
   };
@@ -45,11 +41,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
-    use: [
-      {
-        loader: 'file-loader',
-      },
-    ],
+    use: [{ loader: 'file-loader' }],
   };
 
   return [svgLoader, fileLoader, cssLoader, babelLoader];

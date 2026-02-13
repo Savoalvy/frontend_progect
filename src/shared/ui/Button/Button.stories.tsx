@@ -8,22 +8,24 @@ import '@app/styles/index.scss';
 export default {
   title: 'shared/Button',
   component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+  argTypes: { backgroundColor: { control: 'color' } },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-  children: 'Primary',
-};
+Primary.args = { children: 'Primary' };
 
 export const Clear = Template.bind({});
 Clear.args = {
   children: 'Clear',
   theme: ThemeButton.CLEAR,
+};
+
+export const ClearInverted = Template.bind({});
+ClearInverted.args = {
+  children: 'ClearInverted',
+  theme: ThemeButton.CLEAR_INVERTED,
 };
 
 export const ClearDark = Template.bind({});

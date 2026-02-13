@@ -29,10 +29,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
   const shortAbout = collapsed ? '' : t('Текст ссылки о сайте');
 
   return (
-    <div
-      data-testid='sidebar'
-      className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [className])}
-    >
+    <div data-testid='sidebar' className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [className])}>
       <Button
         data-testid='sidebar-toggle'
         onClick={onToggle}
@@ -44,29 +41,18 @@ export const Sidebar = ({ className }: SidebarProps) => {
         {collapsed ? '>' : '<'}
       </Button>
       <div className={s.items}>
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.main}
-          className={s.link}
-        >
+        <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main} className={s.link}>
           <MainIcon className={s.icon} />
           {shortMain}
         </AppLink>
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.about}
-          className={s.link}
-        >
+        <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.about} className={s.link}>
           <AboutIcon className={s.icon} />
           {shortAbout}
         </AppLink>
       </div>
       <div className={s.switchers}>
         <ThemeSwitcher />
-        <LangSwitcher
-          className={s.lang}
-          short={collapsed}
-        />
+        <LangSwitcher className={s.lang} short={collapsed} />
       </div>
     </div>
   );

@@ -1,17 +1,15 @@
 import React, { Suspense } from 'react';
-import './styles/index.scss';
 import { useTheme } from '@app/providers/ThemeProvider';
 import { classNames } from '@shared/lib/classNames';
 import { Sidebar } from '@widgets/Sidebar';
 import { AppRouter } from '@app/providers/router';
 import { Navbar } from '@widgets/Navbar';
 
-/* eslint-disable */
-
 function App() {
   const { theme } = useTheme();
   return (
     <div className={classNames('app', {}, [theme])}>
+      {/* eslint-disable-next-line i18next/no-literal-string */}
       <Suspense fallback={<div>Загрузка...</div>}>
         <Navbar />
         <div className='content-page'>

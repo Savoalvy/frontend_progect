@@ -6,10 +6,11 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'airbnb',
     'plugin:i18next/recommended',
     'plugin:storybook/recommended',
-    'prettier',
+    'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -19,7 +20,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'prettier'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'prettier', 'react-hooks'],
   globals: {
     __IS_DEV__: true,
   },
@@ -27,23 +28,44 @@ module.exports = {
     {
       files: ['**/src/**/*.test.{ts,tsx}'],
       rules: {
-        'i18next/no-literal-string': 'off', // Отключаем проверку в тестах
+        'i18next/no-literal-string': 'off',
       },
     },
   ],
   rules: {
+    // Отключаем правила, которые конфликтуют с Prettier
+    'object-curly-newline': 'off',
+    'object-property-newline': 'off',
+    'object-curly-spacing': 'off',
+    'arrow-parens': 'off',
+    'react/jsx-wrap-multilines': 'off',
+    'react/jsx-closing-bracket-location': 'off',
+    'react/jsx-props-no-multi-spaces': 'off',
+    'react/jsx-one-expression-per-line': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'function-paren-newline': 'off',
+    'operator-linebreak': 'off',
+    'react/jsx-curly-newline': 'off',
+    'no-confusing-arrow': 'off',
+    'react/jsx-indent': 'off',
+
+    // Prettier конфигурация
+    'prettier/prettier': 'error',
+
+    // Остальные правила
     'i18next/no-literal-string': [
       'error',
       {
-        markupOnly: true, // Проверяем только JSX разметку
-        ignoreAttribute: ['data-testid', 'to'], // Игнорируем атрибуты
+        markupOnly: true,
+        ignoreAttribute: ['data-testid', 'to'],
       },
     ],
-    'prettier/prettier': 'error',
-    'react/jsx-indent': 'off',
-    'react/jsx-indent-props': 'off',
-    indent: 'off',
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/jsx-filename-extension': [
+      2,
+      {
+        extensions: ['.js', '.jsx', '.tsx'],
+      },
+    ],
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
@@ -55,5 +77,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'warn',
     'react/function-component-definition': 'off',
     'no-shadow': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
   },
 };
