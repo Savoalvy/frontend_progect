@@ -4,6 +4,8 @@ module.exports = {
     'no-missing-end-of-source-newline': null,
     'selector-class-pattern': null,
     'no-descending-specificity': null,
+    'number-max-precision': null,
+    'keyframes-name-pattern': null,
     'at-rule-no-unknown': [
       true,
       {
@@ -24,22 +26,15 @@ module.exports = {
           'else',
           'each',
           'for',
-          'while'
-        ]
-      }
+          'while',
+        ],
+      },
     ],
     'scss/at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: [
-          'tailwind',
-          'apply',
-          'variants',
-          'responsive',
-          'screen',
-          'layer'
-        ]
-      }
-    ]
-  }
+        ignoreAtRules: ['tailwind', 'apply', 'variants', 'responsive', 'screen', 'layer'],
+      },
+    ],
+  },
 };
