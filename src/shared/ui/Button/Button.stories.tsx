@@ -11,7 +11,7 @@ export default {
   argTypes: { backgroundColor: { control: 'color' } },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = { children: 'Primary' };

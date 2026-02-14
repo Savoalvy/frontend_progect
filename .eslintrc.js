@@ -33,7 +33,6 @@ module.exports = {
     },
   ],
   rules: {
-    // Отключаем правила, которые конфликтуют с Prettier
     'object-curly-newline': 'off',
     'object-property-newline': 'off',
     'object-curly-spacing': 'off',
@@ -48,11 +47,7 @@ module.exports = {
     'react/jsx-curly-newline': 'off',
     'no-confusing-arrow': 'off',
     'react/jsx-indent': 'off',
-
-    // Prettier конфигурация
     'prettier/prettier': 'error',
-
-    // Остальные правила
     'i18next/no-literal-string': [
       'error',
       {
@@ -79,5 +74,6 @@ module.exports = {
     'no-shadow': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
+    'no-param-reassign': 'off',
   },
 };

@@ -22,14 +22,17 @@ export const Sidebar = ({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const onToggle = () => {
-    setCollapsed(prev => !prev);
+    setCollapsed((prev) => !prev);
   };
 
   const shortMain = collapsed ? '' : t('Текст ссылки на главную');
   const shortAbout = collapsed ? '' : t('Текст ссылки о сайте');
 
   return (
-    <div data-testid='sidebar' className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [className])}>
+    <div
+      data-testid='sidebar'
+      className={classNames(s.sidebar, { [s.collapsed]: collapsed }, [className])}
+    >
       <Button
         data-testid='sidebar-toggle'
         onClick={onToggle}
