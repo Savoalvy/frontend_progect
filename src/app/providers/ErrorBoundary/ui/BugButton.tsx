@@ -19,5 +19,9 @@ export const BugButton: FC<BugButtonProps> = () => {
     }
   }, [error]);
 
-  return <Button onClick={triggerError}>{t('Пробросить ошибку (Тест)')}</Button>;
+  return (
+    <Button onClick={triggerError}>
+      {t('Пробросить ошибку (Тест)')}
+    </Button>
+  );
 };

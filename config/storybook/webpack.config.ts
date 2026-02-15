@@ -2,7 +2,11 @@ import type { Configuration } from 'webpack';
 import path from 'path';
 import { BuildPaths } from '../build/types/config';
 
-export default ({ config }: { config: Configuration }): Configuration => {
+export default ({
+  config,
+}: {
+  config: Configuration;
+}): Configuration => {
   const paths: BuildPaths = {
     build: '',
     html: '',

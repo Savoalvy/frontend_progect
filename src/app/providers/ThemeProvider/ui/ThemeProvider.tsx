@@ -5,7 +5,10 @@ import {
   ThemeContext,
 } from '@app/providers/ThemeProvider/lib/ThemeContext';
 
-const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) ?? Theme.LIGHT;
+const defaultTheme =
+  (localStorage.getItem(
+    LOCAL_STORAGE_THEME_KEY,
+  ) as Theme) ?? Theme.LIGHT;
 
 interface ThemeProviderProps {
   initialTheme?: Theme;
@@ -14,7 +17,9 @@ interface ThemeProviderProps {
 const ThemeProvider: FC<ThemeProviderProps> = (props) => {
   const { children, initialTheme } = props;
 
-  const [theme, setTheme] = useState<Theme>(initialTheme ?? defaultTheme);
+  const [theme, setTheme] = useState<Theme>(
+    initialTheme ?? defaultTheme,
+  );
 
   const defaultProps = useMemo(
     () => ({
@@ -24,7 +29,11 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
     [theme],
   );
 
-  return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={defaultProps}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };
 
 export default ThemeProvider;

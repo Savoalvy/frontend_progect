@@ -10,7 +10,9 @@ describe('Counter', () => {
         counter: { value: 10 },
       },
     });
-    expect(screen.getByTestId('value-title')).toHaveTextContent('10');
+    expect(
+      screen.getByTestId('value-title'),
+    ).toHaveTextContent('10');
   });
 
   test('increment', () => {
@@ -20,7 +22,9 @@ describe('Counter', () => {
       },
     });
     userEvent.click(screen.getByTestId('increment-btn'));
-    expect(screen.getByTestId('value-title')).toHaveTextContent('11');
+    expect(
+      screen.getByTestId('value-title'),
+    ).toHaveTextContent('11');
   });
 
   test('decrement', () => {
@@ -30,6 +34,8 @@ describe('Counter', () => {
       },
     });
     userEvent.click(screen.getByTestId('decrement-btn'));
-    expect(screen.getByTestId('value-title')).toHaveTextContent('9');
+    expect(
+      screen.getByTestId('value-title'),
+    ).toHaveTextContent('9');
   });
 });

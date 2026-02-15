@@ -32,7 +32,14 @@ export default {
     '\\.(s?css)$': 'identity-obj-proxy',
     '^.+\\.svg$': '<rootDir>/jestEmptyComponent.tsx',
   },
-  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+  moduleFileExtensions: [
+    'js',
+    'jsx',
+    'ts',
+    'tsx',
+    'json',
+    'node',
+  ],
 
   // The directory where Jest should output its coverage files
   // coverageDirectory: undefined,

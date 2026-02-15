@@ -1,5 +1,8 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import {
+  ComponentMeta,
+  ComponentStory,
+} from '@storybook/react';
 import { Theme } from '@app/providers/ThemeProvider';
 import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Button, ThemeButton, SizeButton } from './Button';
@@ -11,7 +14,9 @@ export default {
   argTypes: { backgroundColor: { control: 'color' } },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = (args) => (
+  <Button {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = { children: 'Primary' };
@@ -52,7 +57,9 @@ BackgroundInverted.args = {
   children: 'BackgroundInverted',
   theme: ThemeButton.BACKGROUND_INVERTED,
 };
-BackgroundInverted.decorators = [ThemeDecorator(Theme.DARK)];
+BackgroundInverted.decorators = [
+  ThemeDecorator(Theme.DARK),
+];
 
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
@@ -140,4 +147,6 @@ SquareBackgroundInvertedXL.args = {
   size: SizeButton.XL,
   theme: ThemeButton.BACKGROUND_INVERTED,
 };
-SquareBackgroundInvertedXL.decorators = [ThemeDecorator(Theme.DARK)];
+SquareBackgroundInvertedXL.decorators = [
+  ThemeDecorator(Theme.DARK),
+];

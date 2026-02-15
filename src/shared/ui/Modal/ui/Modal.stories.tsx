@@ -1,5 +1,8 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import {
+  ComponentMeta,
+  ComponentStory,
+} from '@storybook/react';
 
 import '@app/styles/index.scss';
 import { Modal } from '@shared/ui/Modal';
@@ -12,7 +15,9 @@ export default {
   argTypes: { backgroundColor: { control: 'color' } },
 } as ComponentMeta<typeof Modal>;
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
+const Template: ComponentStory<typeof Modal> = (args) => (
+  <Modal {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
