@@ -29,3 +29,4 @@ jobs:
 
       - name: linting SCSS
         run: npm run lint:scss
+Введите текст: Введите текст
