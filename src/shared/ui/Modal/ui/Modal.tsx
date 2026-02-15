@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState, ReactNode } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  ReactNode,
+} from 'react';
 import { classNames } from '@shared/lib/classNames';
 import { Portal } from '@shared/ui/Portal';
 import { useTheme } from '@app/providers/ThemeProvider';
@@ -9,22 +15,31 @@ interface ModalProps {
   children?: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 300;
 
 export const Modal = (props: ModalProps) => {
-  const { className, children, isOpen, onClose } = props;
+  const { className, children, isOpen, onClose, lazy } =
+    props;
 
   const { theme } = useTheme();
 
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const mods: Record<string, boolean> = {
     [s.opened]: isOpen,
     [s.isClosing]: isClosing,
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
 
   const closeHandler = useCallback(() => {
     if (onClose) {
@@ -45,7 +60,9 @@ export const Modal = (props: ModalProps) => {
     [closeHandler],
   );
 
-  const onContentClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const onContentClick = (
+    e: React.MouseEvent<HTMLDivElement>,
+  ) => {
     e.stopPropagation();
   };
 
@@ -60,13 +77,26 @@ export const Modal = (props: ModalProps) => {
     };
   }, [isOpen, onKeydown]);
 
+  if (lazy && !isMounted) {
+    return null;
+  }
+
   return (
     <Portal>
-      <div className={classNames(s.modal, mods, [className, theme, 'app_modal'])}>
+      <div
+        className={classNames(s.modal, mods, [
+          className,
+          theme,
+          'app_modal',
+        ])}
+      >
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
         <div className={s.overlay} onClick={closeHandler}>
           {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-          <div className={s.content} onClick={onContentClick}>
+          <div
+            className={s.content}
+            onClick={onContentClick}
+          >
             {children}
           </div>
         </div>
