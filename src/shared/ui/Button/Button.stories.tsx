@@ -150,3 +150,10 @@ SquareBackgroundInvertedXL.args = {
 SquareBackgroundInvertedXL.decorators = [
   ThemeDecorator(Theme.DARK),
 ];
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: 'Disabled',
+  theme: ThemeButton.OUTLINE,
+  disabled: true,
+};

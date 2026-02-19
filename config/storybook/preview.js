@@ -1,9 +1,13 @@
 import { Theme } from '@app/providers/ThemeProvider';
-import { StyleDecorator } from '@shared/config/storybook/StyleDecorator/StyleDecorator';
-import { ThemeDecorator } from '@shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { RouterDecorator } from '@shared/config/storybook/RouterDecorator/RouterDecorator';
 
 import '@app/styles/index.scss';
+import {
+  RouterDecorator,
+  StoreDecorator,
+  StyleDecorator,
+  ThemeDecorator,
+  TranslationDecorator,
+} from '@shared/config';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -28,4 +32,10 @@ export const parameters = {
   },
 };
 
-export const decorators = [ThemeDecorator(Theme.LIGHT), StyleDecorator, RouterDecorator];
+export const decorators = [
+  StoreDecorator({}),
+  TranslationDecorator,
+  ThemeDecorator(Theme.LIGHT),
+  StyleDecorator,
+  RouterDecorator,
+];

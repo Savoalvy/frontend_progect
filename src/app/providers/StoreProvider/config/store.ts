@@ -5,6 +5,7 @@ import {
 import { StateSchema } from '@app/providers/StoreProvider';
 import { counterReducer } from '@entities/Counter';
 import { userReducer } from '@entities/User';
+import { loginReducer } from '@features/AuthByUsername';
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -12,6 +13,7 @@ export function createReduxStore(
   const rootReducer: ReducersMapObject<StateSchema> = {
     counter: counterReducer,
     user: userReducer,
+    loginForm: loginReducer,
   };
 
   return configureStore<StateSchema>({

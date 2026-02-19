@@ -8,7 +8,6 @@ import {
   useRef,
   useState,
 } from 'react';
-import { current } from '@reduxjs/toolkit';
 import s from './style.module.scss';
 
 // Omit - исключает определенные свойства. Первый параметр тип, второй параметр свойства, которые нужно исключить
