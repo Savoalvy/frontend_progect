@@ -5,7 +5,7 @@ import {
 } from '@storybook/react';
 import '@app/styles/index.scss';
 import { StoreDecorator } from '@shared/config';
-import { LoginForm } from './LoginForm';
+import LoginForm from './LoginForm';
 
 export default {
   title: 'features/LoginForm',
